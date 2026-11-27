@@ -22,7 +22,7 @@ export default function Hero() {
   }, [typedText, fullText])
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center py-20 overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center py-20 overflow-hidden bg-cross-pattern">
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 z-10" />
       </div>

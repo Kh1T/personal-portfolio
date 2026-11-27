@@ -26,6 +26,12 @@
     --ring: 0 100% 71%;
     --highlight: 0 0% 98%;
     --radius: 0.5rem;
+
+    /* Cross (+) pattern */
+    --cross-pattern-bg: #ffffff;
+    --cross-pattern-color: #e5e7eb;
+    --cross-pattern-size: 24px;
+    --cross-pattern-arm: 4px;
   }
 
   .dark {
@@ -50,6 +56,10 @@
     --input: 0 0% 14.9%;
     --ring: 180 100% 50%;
     --highlight: 240 5% 15%;
+
+    /* Cross (+) pattern */
+    --cross-pattern-bg: #09090b;
+    --cross-pattern-color: #27272a;
   }
 }
 
@@ -59,6 +69,36 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .bg-cross-pattern {
+    background-color: var(--cross-pattern-bg);
+    background-image:
+      radial-gradient(
+        circle at center,
+        transparent 0,
+        transparent var(--cross-pattern-arm),
+        var(--cross-pattern-bg) var(--cross-pattern-arm)
+      ),
+      linear-gradient(
+        to right,
+        transparent calc(50% - 0.5px),
+        var(--cross-pattern-color) calc(50% - 0.5px),
+        var(--cross-pattern-color) calc(50% + 0.5px),
+        transparent calc(50% + 0.5px)
+      ),
+      linear-gradient(
+        to bottom,
+        transparent calc(50% - 0.5px),
+        var(--cross-pattern-color) calc(50% - 0.5px),
+        var(--cross-pattern-color) calc(50% + 0.5px),
+        transparent calc(50% + 0.5px)
+      );
+    background-size: var(--cross-pattern-size) var(--cross-pattern-size);
+    background-position: center;
+    background-repeat: repeat;
   }
 }
 
